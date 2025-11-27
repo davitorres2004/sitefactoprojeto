@@ -77,59 +77,59 @@
     @media(max-width:700px){.info-grid{grid-template-columns:1fr;}}
 </style>
 
-<script>
-// 🟦 formata para DD/MM/AAAA
-const formatarData = d => d ? new Date(d).toLocaleDateString("pt-BR") : "--";
+                <script>
+                    // 🟦 formata para DD/MM/AAAA
+                    const formatarData = d => d ? new Date(d).toLocaleDateString("pt-BR") : "--";
 
-function consultarAPI(){
-    const cpf = document.getElementById("cpf").value.trim();
-    if(!cpf){ alert("⚠ CPF obrigatório!"); return; }
+                    function consultarAPI(){
+                        const cpf = document.getElementById("cpf").value.trim();
+                        if(!cpf){ alert("⚠ CPF obrigatório!"); return; }
 
-    fetch(`https://api.conveniar.com.br/transparencia/pagamentos/bolsas?cpf=${cpf}`,{
-        headers:{
-            "accept":"application/json",
-            "X-API-KEY":"f5aa144e-ba66-4da6-9b21-151473b4022d"
-        }
-    })
-    .then(r=>r.json())
-    .then(data=>{
-        const area=document.getElementById("resultados");
-        area.innerHTML="";
+                        fetch(`https://api.conveniar.com.br/transparencia/pagamentos/bolsas?cpf=${cpf}`,{
+                            headers:{
+                                "accept":"application/json",
+                                "X-API-KEY":"f5aa144e-ba66-4da6-9b21-151473b4022d"
+                            }
+                        })
+                        .then(r=>r.json())
+                        .then(data=>{
+                            const area=document.getElementById("resultados");
+                            area.innerHTML="";
 
-        if(!Array.isArray(data)||data.length===0){
-            area.innerHTML='<b class="text-danger">Nenhum pagamento encontrado.</b>';
-            return;
-        }
+                            if(!Array.isArray(data)||data.length===0){
+                                area.innerHTML='<b class="text-danger">Nenhum pagamento encontrado.</b>';
+                                return;
+                            }
 
-        data.forEach((item,i)=>{
-            area.innerHTML+=`
-            <div class="card-result">
-                <div class="section-title">💰 Pagamento ${i+1}</div>
-                <div class="info-grid">
-                    <div><span class="label">Data:</span> ${formatarData(item.pagamento.dataPagamento)}</div>
-                    <div><span class="label">Competência:</span> ${formatarData(item.pagamento.dataCompetencia)}</div>
-                    <div><span class="label">Vigência:</span> <b>${formatarData(item.pagamento.dataVigenciaBolsa)}</b></div>
-                    <div><span class="label">Bruto:</span> R$ ${item.pagamento.valorBrutoPago.toFixed(2)}</div>
-                    <div><span class="label">Líquido:</span> <b>R$ ${item.pagamento.valorLiquidoPago.toFixed(2)}</b></div>
-                    <div><span class="label">Tipo:</span> ${item.pagamento.tipoPagamento}</div>
-                    <div><span class="label">Convênio:</span> ${item.pagamento.nomeConvenio}</div>
-                    <div><span class="label">Instituição:</span> ${item.pagamento.instituicaoPagamento}</div>
-                </div>
+                            data.forEach((item,i)=>{
+                                area.innerHTML+=`
+                                <div class="card-result">
+                                    <div class="section-title">💰 Pagamento ${i+1}</div>
+                                    <div class="info-grid">
+                                        <div><span class="label">Data:</span> ${formatarData(item.pagamento.dataPagamento)}</div>
+                                        <div><span class="label">Competência:</span> ${formatarData(item.pagamento.dataCompetencia)}</div>
+                                        <div><span class="label">Vigência:</span> <b>${formatarData(item.pagamento.dataVigenciaBolsa)}</b></div>
+                                        <div><span class="label">Bruto:</span> R$ ${item.pagamento.valorBrutoPago.toFixed(2)}</div>
+                                        <div><span class="label">Líquido:</span> <b>R$ ${item.pagamento.valorLiquidoPago.toFixed(2)}</b></div>
+                                        <div><span class="label">Tipo:</span> ${item.pagamento.tipoPagamento}</div>
+                                        <div><span class="label">Convênio:</span> ${item.pagamento.nomeConvenio}</div>
+                                        <div><span class="label">Instituição:</span> ${item.pagamento.instituicaoPagamento}</div>
+                                    </div>
 
-                <div class="section-title mt-3">👤 Favorecido</div>
-                <div class="info-grid">
-                    <div><span class="label">Nome:</span> ${item.favorecido.nome}</div>
-                    <div><span class="label">CPF:</span> <b>${item.favorecido.cpf}</b></div>
-                </div>
-            </div>
-            `;
-        });
-    })
-    .catch(()=>alert("Erro ao consultar API"));
-}
-</script>
-                
-                
+                                    <div class="section-title mt-3">👤 Favorecido</div>
+                                    <div class="info-grid">
+                                        <div><span class="label">Nome:</span> ${item.favorecido.nome}</div>
+                                        <div><span class="label">CPF:</span> <b>${item.favorecido.cpf}</b></div>
+                                    </div>
+                                </div>
+                                `;
+                            });
+                        })
+                        .catch(()=>alert("Erro ao consultar API"));
+                    }
+                </script>
+                                
+                                
 
 
             </section>
