@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Central de Bolsas</title>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
+    <!-- Bootstrap Bundle JS (defer para carregar após HTML) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 5 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-dNrK8KjbZ8XjO2Qutv2MPvR+UO8NQw3tDi5l7V/VNbtCWUwOeGxKpD9V2muKqzPytBRPjGwYTtZMYuOZf3s8kA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div id="header"></div>
+    <div id="barranav"></div>
+
+    <main role="main" class="container-fluid mt-0">
+        <div class="row">
+            <!-- MENU LATERAL -->
+            <aside role="complementary" class="col-md-3 col-lg-2 sidebar p-1 d-flex flex-column  ">
+                <div id="menu"></div>
+                <hr style="margin: 0.4rem 0;">
+                <div id="menu2"></div>
+
+            </aside>
+
+            <section class="col-md-9 col-lg-10">
+
+
+
+                <h2 class=" text-center" style="font-family: sans-serif; padding: 15px 0px;">Pedidos de Pagamento de
+                    Pessoa Física</h2>
+                <p><strong>Prezado(a) Coordenador(a),</strong></p>
+                <p>Este guia apresenta as orientações passo a passo para realizar corretamente o processo de
+                    <b>Pedidos de Pagamento de Pessoa Física</b> pelo Portal do Coordenador no sistema
+                    <b>Conveniar</b>.
+                </p>
+
+                <h3>1) Acessando o sistema</h3>
+                <p>Abra o site <b>Conveniar</b> e, no canto superior direito, na tarja verde, clique em:
+                    <b>Pedidos &gt; Pagamento de Pessoa Física</b>.
+                </p>
+                <img src="partes/paginas/rpa/foto1.jpeg" style="border: 1px solid black;border-radius: 10px;"
+                    alt="Tela inicial do Conveniar">
+
+                <h3>2) Iniciando o pedido</h3>
+                <p>Clique em <b>NOVO</b> para começar o processo de pedido de pagamento.</p>
+                <img src="partes/paginas/rpa/foto2.jpg" alt="Botão Novo para iniciar pedido"
+                    style="border: 1px solid black;border-radius: 10px;">
+
+                <h3>3) Preenchendo informações do projeto</h3>
+                <p>No quadro <i>Projeto</i>, selecione o projeto relacionado ao favorecido.</p>
+                <img src="partes/paginas/rpa/foto3.jpg" alt="Seleção do projeto"
+                    style="border: 1px solid black;border-radius: 10px;">
+
+                <h3>4) Selecionando o favorecido</h3>
+                <p>No campo <b>Favorecido</b>, escolha a pessoa para quem será feito o pagamento e preencha os
+                    demais
+                    campos:</p>
+                <img src="partes/paginas/rpa/foto4.jpg" alt="Campo Favorecido"
+                    style="border: 1px solid black;border-radius: 10px;border-radius: 10px;">
+
+                <ul>
+                    <li><b>Favorecido:</b> Informe o CPF da pessoa. Caso já esteja cadastrada, o nome aparecerá
+                        automaticamente. Se não, clique na lupa <b>NOVO</b> para cadastrar.</li>
+                    <li><b>Confirmar Conta Bancária:</b> Clique na lupa <b>Procurar</b> para verificar as contas
+                        vinculadas. Selecione a conta correta e confirme em <b>Confirmar Conta Bancária</b>.</li>
+                    <li><b>Valor bruto:</b> Informe o valor total do serviço prestado.</li>
+                    <li><b>Data de Vencimento:</b> Informe a data de pagamento.</li>
+                    <li><b>Mês de competência:</b> Preencha com o mês referente ao pagamento.</li>
+                    <li><b>Horas Trabalhadas:</b> Informe a quantidade de horas trabalhadas.</li>
+                    <li><b>Finalidade:</b> Descreva a função do favorecido no projeto.</li>
+                </ul>
+                <img src="partes/paginas/rpa/foto5.jpg" alt="Preenchimento dos campos"
+                    style="border: 1px solid black; border-radius: 10px;">
+
+                <h3>5) Salvando o pedido</h3>
+                <p>Suba a página e clique em <b>Salvar</b>.</p>
+                <img src=" partes/paginas/rpa/foto6.jpg" alt="Botão Salvar"
+                    style="border: 1px solid black;border-radius: 10px;">
+
+                <h3>6) Enviando para aprovação</h3>
+                <p>Desça a página e clique em <b>Enviar</b>.</p>
+                <img src="partes/paginas/rpa/foto7.jpg" alt="Botão Enviar"
+                    style="border: 1px solid black;border-radius: 10px;">
+
+                <h3>7) Informando o analista</h3>
+                <p>Comunique à analista do projeto que o pedido foi enviado, para que ela possa seguir com a
+                    aprovação.
+                </p>
+            </section>
+            <style>
+                /* diminui o tamanho de todos os h2 dentro dessa seção */
+                .col-md-9.col-lg-10 h3 {
+                    font-size: 1.2rem;
+                    /* ajuste conforme necessário */
+                }
+
+                .col-md-9.col-lg-10 h2 {
+                    font-size: 1.7rem;
+                    /* ajuste conforme necessário */
+                }
+            </style>
+
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ DA PÁGINA -->
+    <footer role="contentinfo" class="footer text-center py-3" style="background-color: #b30000; color: white; ">
+        Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Função para carregar partes externas
+        function carregarParte(idElemento, caminhoArquivo) {
+            fetch(caminhoArquivo)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Erro ao carregar ${caminhoArquivo}`);
+                    return response.text();
+                })
+                .then(html => document.getElementById(idElemento).innerHTML = html)
+                .catch(err => console.error(err));
+        }
+
+        // Carregando os arquivos HTML separados
+        carregarParte('header', 'partes/header.html');
+        carregarParte('barranav', 'partes/barranav.html');
+        carregarParte('menu', 'partes/menu-lateral-principal.html');
+        carregarParte("menu2", 'partes/menu-lateral-informacoes.html');
+        carregarParte('ads', 'partes/carrossel-documentos.html');
+        carregarParte('cards-videos', 'partes/cards-videos.html');
+
+        // Pode carregar também aba-avisos se quiser modularizar
+
+    </script>
+
+</body>
+
+</html>

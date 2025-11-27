@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Central de Bolsas</title>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
+    <!-- Bootstrap Bundle JS (defer para carregar após HTML) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 5 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-dNrK8KjbZ8XjO2Qutv2MPvR+UO8NQw3tDi5l7V/VNbtCWUwOeGxKpD9V2muKqzPytBRPjGwYTtZMYuOZf3s8kA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div id="header"></div>
+    <div id="barranav"></div>
+
+    <main role="main" class="container-fluid mt-0">
+        <div class="row">
+            <!-- MENU LATERAL -->
+            <aside role="complementary" class="col-md-3 col-lg-2 sidebar p-1 d-flex flex-column  ">
+                <div id="menu"></div>
+                <hr style="margin: 0.4rem 0;">
+                <div id="menu2"></div>
+            </aside>
+
+            <section class="col-md-9 col-lg-10">
+                <h1 class=" text-center" style="font-family: sans-serif; padding: 15px 0px;">Pedidos</h1>
+                <p><strong>Prezado(a) Coordenador(a),</strong></p>
+                <section>
+                    <h2 class="section-title">1. Processamento dos Pedidos</h2>
+                    <ul>
+                        <li><strong>Envio e Salvamento:</strong> Os formulários podem ser enviados ao final do processo
+                            ou salvos para envio posterior.</li>
+                        <img src="partes/paginas/pedidos/foto1.jpg" style="border: 1px solid black;">
+                        <li><strong>Imutabilidade após Envio:</strong> Uma
+                            vez que um pedido é enviado, não pode mais
+                            ser alterado. O gestor do projeto na fundação recebe uma pendência para aprová-lo.</li>
+                        <li><strong>Informações do Projeto:</strong> Em todos os tipos de pedidos, a primeira etapa é
+                            selecionar o projeto. O Conveniar então exibe informações cruciais como coordenador,
+                            vigência, saldo do projeto e habilita o botão "Plano de Trabalho" que mostra o saldo das
+                            rubricas e os itens aprovados. Essas informações são relevantes para sua decisão e para a
+                            aprovação do gestor.</li>
+                        <img src="partes/paginas/pedidos/foto5.png" style="border: 1px solid black;">
+                        <li><strong>Número Identificador:</strong> Todo pedido salvo pela primeira vez recebe um número
+                            identificador. Este número permite rastrear e identificar o pedido no sistema,
+                            possibilitando o acompanhamento de todas as etapas de sua tramitação.</li>
+                        <img src="partes/paginas/pedidos/foto6.png" style="border: 1px solid black;">
+                    </ul>
+
+
+                    <div class="note">
+                        <strong>Observação:</strong> Guarde sempre o número identificador gerado — ele é a referência
+                        para acompanhar a tramitação junto à fundação.
+                    </div>
+                    <hr>
+                    <h2>Detalhes dos Tipos de Pedidos</h1>
+                        <p>Aqui você encontrará informações detalhadas sobre como criar cada tipo de pedido
+                            no
+                            sistema Conveniar.</p>
+
+
+
+                        <h2 class="section-title">1. Pedido de Compra/Serviço</h2>
+                        <p>Este pedido é para solicitar à fundação a aquisição de bens materiais ou serviços para o
+                            projeto.
+                        </p>
+                        <ul>
+                            <li><strong>Como Acessar:</strong> Clique no ícone "Pedido de Compra/Serviço".</li>
+                            <li><strong>Abas de Preenchimento:</strong>
+                                <ul class="sub-list">
+                                    <li><strong>Identificação:</strong>
+                                        <ul class="sub-list">
+                                            <li><strong>Projeto:</strong> Selecione o projeto para a compra.</li>
+                                            <li><strong>Rubrica (Opcional):</strong> Indique de qual rubrica a compra
+                                                será
+                                                debitada.</li>
+                                            <li><strong>Meta/Etapa (Se cadastrado):</strong> Informe a meta/etapa
+                                                relacionada à compra.</li>
+                                            <li><strong>Tipo de Compra:</strong> Define o tipo de compra a ser
+                                                realizada.
+                                            </li>
+                                            <li><strong>Instituição/Setor:</strong> Para qual instituição ou setor a
+                                                compra
+                                                será realizada.</li>
+                                            <li><strong>Finalidade:</strong> Qual a finalidade da compra para o projeto.
+                                            </li>
+                                            <li><strong>Carência:</strong> O sistema informa o tempo médio necessário
+                                                para o
+                                                processo de compra (em dias úteis) e verifica se há tempo hábil dentro
+                                                da
+                                                vigência do projeto.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Local de Entrega:</strong> Defina um ou mais locais para a entrega,
+                                        completando ou alterando o endereço sugerido pelo Conveniar e adicionando
+                                        telefone e
+                                        observações.</li>
+                                    <li><strong>Itens do Pedido:</strong>
+                                        <ul class="sub-list">
+                                            <li><strong>Catálogo de Produtos e Serviços:</strong> Use o botão "Procurar"
+                                                para encontrar itens no catálogo da fundação.</li>
+                                            <li><strong>Produto não encontrado no catálogo:</strong> Marque esta opção e
+                                                descreva o item detalhadamente.</li>
+                                            <li><strong>Itens Aprovados:</strong> Visualize produtos/serviços previstos
+                                                no
+                                                Plano de Trabalho.</li>
+                                            <li><strong>Descrição:</strong> Detalhe ao máximo as características do item
+                                                para facilitar a compra.</li>
+                                            <li><strong>Preço Sugerido Unitário:</strong> Ajuda o comprador no processo.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Sugestão de Fornecedor:</strong> Sugira fornecedores por produto,
+                                        adicionando informações e arquivos anexos que julgar importantes para agilizar a
+                                        compra.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+
+                        <h2 class="section-title">2. Pedido de Adiantamento</h2>
+                        <p>Solicitação de liberação antecipada de recursos para que um favorecido possa pagar despesas
+                            de
+                            viagens e/ou outras despesas. Verifique restrições no regimento interno da fundação e nas
+                            leis
+                            do projeto.</p>
+                </section>
+                <style>
+                    /* diminui o tamanho de todos os h2 dentro dessa seção */
+                    .col-md-9.col-lg-10 h2 {
+                        font-size: 1.2rem;
+                        /* ajuste conforme necessário */
+                    }
+
+                    .col-md-9.col-lg-10 h1 {
+                        font-size: 1.7rem;
+                        /* ajuste conforme necessário */
+                    }
+                </style>
+            </section>
+
+
+
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ DA PÁGINA -->
+    <footer role="contentinfo" class="footer text-center py-3" style="background-color: #b30000; color: white; ">
+        Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Função para carregar partes externas
+        function carregarParte(idElemento, caminhoArquivo) {
+            fetch(caminhoArquivo)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Erro ao carregar ${caminhoArquivo}`);
+                    return response.text();
+                })
+                .then(html => document.getElementById(idElemento).innerHTML = html)
+                .catch(err => console.error(err));
+        }
+
+        // Carregando os arquivos HTML separados
+        carregarParte('header', 'partes/header.html');
+        carregarParte('barranav', 'partes/barranav.html');
+        carregarParte('menu', 'partes/menu-lateral-principal.html');
+        carregarParte("menu2", 'partes/menu-lateral-informacoes.html');
+        carregarParte('ads', 'partes/carrossel-documentos.html');
+        carregarParte('cards-videos', 'partes/cards-videos.html');
+
+        // Pode carregar também aba-avisos se quiser modularizar
+
+    </script>
+
+</body>
+
+</html>

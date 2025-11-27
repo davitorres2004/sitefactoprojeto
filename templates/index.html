@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Central de Bolsas</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    <!-- Bootstrap JS (mesma versão do CSS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
+        defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+   <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+<script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const lenis = new Lenis();
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+    });
+</script>
+</head>
+
+<body>
+    <header id="header"></header>
+
+    <div id="barranav"></div>
+
+    <main class="container-fluid mt-0 d-flex flex-column" role="main">
+        <div class="row">
+            <!-- Menu lateral -->
+            <aside class="col-md-3 col-lg-2 sidebar d-flex flex-column p-0" role="complementary">
+                <div id="menu" style="width: 100%; min-height: 100vh; background-color: #203447;"></div>
+            </aside>
+
+            <!-- Conteúdo principal -->
+            <section class="col-md-9 col-lg-10 d-flex flex-column" aria-label="Conteúdo principal">
+                <div id="ads"></div>
+                <hr class="my-4" />
+
+                <!-- Seção de Vídeos -->
+                <section aria-labelledby="titulo-videos" class="mt-5 d-flex flex-column">
+                    <h2 id="titulo-videos" class="fw-bold d-flex flex-column">Vídeos</h2>
+                    <p class="lead" style="font-family: 'Red Hat Display', sans-serif;">Assista aos tutoriais abaixo:</p>
+
+                    <div id="videoContainer" class="row g-4"> <!--Linha que contem 4 videos-->
+                        <!-- Card video 1 -->
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <article class="card h-100 video-card" role="region" aria-labelledby="titulo-video-1">
+                                <div class="ratio ratio-16x9">
+                                    <img src="https://img.youtube.com/vi/3c9NcseMEKQ/hqdefault.jpg" 
+                                        class="card-img-top"
+                                        style="object-fit: cover;">
+
+                                </div>
+
+                                <div class="card-body d-flex flex-column">
+                                    <h3 id="titulo-video-1" class="card-title h6">Pedidos de Pagamento de Pessoa Física</h3>
+                                    <p class="card-text">Envie seu Pedido de Pagamento pelo sistema Conveniar em poucos passos.</p>
+
+                                    <button class="btn mt-auto botao-assista" data-bs-toggle="modal" 
+                                        data-bs-target="#videoModal"
+                                        data-video-src="https://www.youtube.com/embed/3c9NcseMEKQ?si=1eLRE47HePvdOjTV"
+                                        data-video-title="Processo - Pedido de Pagamento">
+                                        Assistir vídeo
+                                    </button>
+                                </div>
+                            </article>
+                        </div>
+
+
+                        
+                        
+                        <!-- Card video 2 -->
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <article class="card h-100 video-card" role="region" aria-labelledby="titulo-video-1">
+                                <div class="ratio ratio-16x9">
+                                    <img src="https://img.youtube.com/vi/3c9NcseMEKQ/hqdefault.jpg"
+                                        class="card-img-top"
+                                        style="object-fit: cover;">
+
+                                </div>
+
+                                <div class="card-body d-flex flex-column">
+                                    <h3 id="titulo-video-1" class="card-title h6">Pedidos de Pagamento de Pessoa Física</h3>
+                                    <p class="card-text">Envie seu Pedido de Pagamento pelo sistema Conveniar em poucos passos.</p>
+
+                                    <button class="btn mt-auto botao-assista" data-bs-toggle="modal" 
+                                        data-bs-target="#videoModal"
+                                        data-video-src="https://www.youtube.com/embed/3c9NcseMEKQ?si=1eLRE47HePvdOjTV"
+                                        data-video-title="Processo - Pedido de Pagamento">
+                                        Assistir vídeo
+                                    </button>
+                                </div>
+                            </article>
+                        </div>
+
+                        
+
+                    </div>
+
+                    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen-md-down modal-xl modal-dialog-centered">
+
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 id="videoModalLabel" class="modal-title h5"></h2>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe id="modalVideoFrame" class="w-100" 
+                                            src=""
+                                            frameborder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr class="my-4" />
+                </section>
+
+                <!-- Avisos -->
+                <section aria-labelledby="titulo-avisos" class="card shadow border-0 my-5 aba-avisos">
+                    <div class="card-header custom-red d-flex align-items-center titulo-aviso">
+                        <i class="bi bi-exclamation-triangle-fill me-2 fs-4" aria-hidden="true"></i>
+                        <h4 id="titulo-avisos" class="mb-0">Avisos Importantes</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>[10/07/2025]</strong> Início do período de solicitação de bolsas no sistema SIGFAP.</li>
+                            <li class="list-group-item"><strong>[08/07/2025]</strong> Atualização no processo de upload de documentos.</li>
+                            <li class="list-group-item"><strong>[05/07/2025]</strong> Novo tutorial disponível na aba "Dúvidas Frequentes".</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <header id="rodape"></header>
+
+    <!-- Script -->
+    <script>
+        // Carregar partes externas
+        function carregarParte(id, caminho) {
+            fetch(caminho)
+                .then(res => {
+                    if (!res.ok) throw new Error(`Erro ${res.status}: ${caminho}`);
+                    return res.text();
+                })
+                .then(html => {
+                    const el = document.getElementById(id);
+                    if (el) el.innerHTML = html;
+
+                    if (id === 'ads') {
+                        const carousel = document.querySelector('#ads .carousel');
+                        if (carousel) new bootstrap.Carousel(carousel, { interval: 5000, wrap: true });
+                    }
+                })
+                .catch(err => console.error('Erro ao carregar parte:', err));
+        }
+
+        // Carregar apenas as partes que existem
+        carregarParte('header', '{{ url_for("static", filename="partes/header.html") }}');
+        carregarParte('menu', '{{ url_for("static", filename="partes/menu-lateral-principal.html") }}');
+        carregarParte('ads', '{{ url_for("static", filename="partes/carrossel-documentos.html") }}');
+        carregarParte('rodape', '{{ url_for("static", filename="partes/rodape.html") }}');
+        carregarParte('barranav', 'static/partes/barranav.html');
+        // Removido: menu2 (não existe no HTML)
+
+        // Modal e busca
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('videoModal');
+            const modalFrame = document.getElementById("modalVideoFrame");
+
+            const title = document.getElementById('videoModalLabel');
+            const link = document.getElementById('modalLink');
+
+            modal.addEventListener("show.bs.modal", event => {
+                const btn = event.relatedTarget;
+                const src = btn.getAttribute("data-video-src");
+                modalFrame.src = src + "&autoplay=1"; // 🔥 já abre tocando
+            });
+
+
+            modal.addEventListener("hidden.bs.modal", () => {
+                modalFrame.src = "";
+            });
+
+
+            // F, busca com feedback acessível
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function () {
+                const term = this.value.trim().toLowerCase();
+                const cards = document.querySelectorAll('.video-card');
+                let visible = 0;
+
+                cards.forEach(card => {
+                    const cardTitle = card.querySelector('.card-title');
+                    const titleText = cardTitle ? cardTitle.textContent.toLowerCase() : '';
+                    const show = term === '' || titleText.includes(term);
+                    card.parentElement.style.display = show ? '' : 'none';
+                    if (show) visible++;
+                });
+
+                // Feedback acessível
+                const status = document.getElementById('searchStatus') || createStatus();
+                status.textContent = term ? `Exibindo ${visible} vídeo(s) para "${term}"` : 'Todos os vídeos exibidos';
+            });
+
+            function createStatus() {
+                const status = document.createElement('div');
+                status.id = 'searchStatus';
+                status.className = 'visually-hidden';
+                status.setAttribute('aria-live', 'polite');
+                document.body.appendChild(status);
+                return status;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Central de Bolsas</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="../static/style.css" />
+
+    <!-- Bootstrap JS (mesma versão do CSS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
+        defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+   <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+</head>
+
+<body>
+
+    <div id="header"></div>
+    <div id="barranav"></div>
+
+    <main role="main" class="container-fluid mt-0">
+        <div class="row">
+            <!-- MENU LATERAL -->
+           <aside class="col-md-3 col-lg-2 sidebar d-flex flex-column p-0" role="complementary">
+    <div id="menu" style="width: 100%; min-height: 100vh; background-color: #203447;"></div>
+</aside>
+
+
+
+            <section class="col-md-9 col-lg-10">
+                
+                
+                <section class="card shadow border-0 my-3 p-4">
+                    <div class="card-header bg-white border-0 mb-3">
+                        <h3 class="fw-bold mb-0 text-center" style="color: #e94c1f;"></h3>
+                            <i class="bi bi-mortarboard-fill me-2"></i>
+                            Processamento pela Central de Bolsas
+                        </h3>
+                    </div>
+                    
+
+                    <div class="card-body">
+                        <p><strong>Prezado(a) Coordenador(a),</strong></p>
+                        <p>
+                        
+                        O processamento pela <strong>Central de Bolsas</strong> é uma etapa crucial no fluxo interno para solicitação e
+                        contratação de bolsas, ocorrendo após a aprovação da solicitação pelo Setor de Projetos.
+                        </p>
+                        <hr>
+                        <p>
+                        Uma vez que as solicitações são aprovadas, elas são encaminhadas à Central de Bolsas, que assume as seguintes
+                        responsabilidades:
+                        </p>
+
+                        <!-- Blocos de detalhes -->
+                        <div class="accordion" id="accordionBolsas">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item1">
+                                Início do Processo de Contratação
+                            </button>
+                            </h2>
+                            <div id="item1" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
+                            <div class="accordion-body">
+                                A Central de Bolsas inicia formalmente o processo de contratação do bolsista.
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item2">
+                                Verificação de Adequações e Conformidades
+                            </button>
+                            </h2>
+                            <div id="item2" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
+                            <div class="accordion-body">
+                                É responsabilidade da Central de Bolsas verificar as adequações entre os registros do plano de trabalho,
+                                a categorização das bolsas e outras conformidades necessárias.
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item3">
+                                Emissão do Contrato de Bolsa
+                            </button>
+                            </h2>
+                            <div id="item3" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
+                            <div class="accordion-body">
+                                A Central de Bolsas emite o contrato de bolsa.
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item4">
+                                Assinatura Digital do Contrato
+                            </button>
+                            </h2>
+                            <div id="item4" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
+                            <div class="accordion-body">
+                                Após a emissão, o contrato é enviado para assinatura digital via <strong>D4Sign</strong>. Essa plataforma
+                                coleta assinaturas em etapas e garante autenticidade com certificação digital ICP-Brasil.
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item5">
+                                Upload do Contrato Assinado
+                            </button>
+                            </h2>
+                            <div id="item5" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
+                            <div class="accordion-body">
+                                Após todas as assinaturas (bolsista, coordenador e Facto), a Central de Bolsas realiza o upload do contrato
+                                assinado no sistema Conveniar.
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item6">
+                                Agendamento dos Pagamentos
+                            </button>
+                            </h2>
+                            <div id="item6" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
+                            <div class="accordion-body">
+                                Com o contrato assinado e inserido no Conveniar, a Central de Bolsas inicia o agendamento dos pagamentos,
+                                conforme o valor da bolsa, número de parcelas e vigência.
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item7">
+                                Lançamento de Pagamentos
+                            </button>
+                            </h2>
+                            <div id="item7" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
+                            <div class="accordion-body">
+                                A Central de Bolsas emite os pedidos de pagamento de todas as parcelas previstas. O cadastro bancário do
+                                bolsista deve estar correto — o pagamento é feito exclusivamente pelo <strong>Banco do Brasil</strong>.
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item8">
+                                Gestão de Aditivos Contratuais
+                            </button>
+                            </h2>
+                            <div id="item8" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
+                            <div class="accordion-body">
+                                Alterações contratuais (como prorrogação, ajuste de valor ou troca de bolsista) devem ser feitas pelo
+                                Conveniar e processadas pela Central de Bolsas.
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item9">
+                                Processamento de Cancelamento de Contrato
+                            </button>
+                            </h2>
+                            <div id="item9" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
+                            <div class="accordion-body">
+                                Em caso de cancelamento solicitado pelo coordenador via e-mail, a Central de Bolsas processa o pedido após
+                                validação do setor de Projetos, emite os termos, coleta assinaturas e cancela os pagamentos programados.
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <hr class="my-4">
+                        <p>
+                        A Central de Bolsas atua como responsável principal (<strong>R</strong>) em diversas atividades conforme a Matriz
+                        RACI, incluindo geração e assinatura de contratos, aditivos e cancelamentos.
+                        </p>
+                        <p>
+                        Para dúvidas ou problemas operacionais, entre em contato pelo e-mail
+                        <a href="mailto:centraldebolsas@facto.org.br" class="text-decoration-none">centraldebolsas@facto.org.br</a>
+                        ou WhatsApp <a href="https://wa.me/5527996001115" target="_blank">(27) 99600-1115</a>.
+                        </p>
+                    </div>
+                    </section>
+
+
+            </section>
+
+
+
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ DA PÁGINA -->
+    <header id="rodape"></header>
+
+    <script src="../static/main.js"></script>
+
+</body>
+
+</html>

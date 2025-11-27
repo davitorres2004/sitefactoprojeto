@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Central de Bolsas</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="../static/style.css" />
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
+    defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+   <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div id="barranav"></div>
+
+  <main role="main" class="container-fluid mt-0">
+    <div class="row">
+      <!-- MENU LATERAL -->
+      <aside class="col-md-3 col-lg-2 sidebar d-flex flex-column p-0" role="complementary">
+                <div id="menu" style="width: 100%; min-height: 100vh; background-color: #203447;"></div>
+            
+                
+                <div id="menu2"></div>
+            </aside>
+
+      <section class="col-md-9 col-lg-10">
+        <section class="card shadow border-0 my-3 p-4">
+            
+          <div class="card-header bg-white border-0 mb-3">
+           <h3 class="fw-bold mb-0 text-center" style="color: #e94c1f;">
+
+
+              <i class="bi bi-laptop me-2"></i>
+              Como Acessar o Conveniar (Portal do Coordenador)
+            </h3>
+          </div>
+
+          <div class="card-body">
+            <p><strong>Prezado(a) Coordenador(a),</strong></p>
+
+            <p>
+              O acesso ao <strong>Conveniar</strong> é realizado com o login individual do coordenador no site do
+              <a href="https://facto.conveniar.com.br/Coordenador/Login.aspx" target="_blank">Portal do Coordenador</a>.
+            </p>
+
+            <hr>
+
+            <p>
+              Este portal é a plataforma exclusiva utilizada para o processo de
+              <strong>solicitação, aprovação, contratação e gerenciamento de bolsas</strong> em projetos.
+            </p>
+
+            <p>
+              Após efetuar o login, o coordenador tem acesso a diversas funcionalidades dentro do sistema, incluindo:
+            </p>
+
+            <!-- Accordion -->
+            <div class="accordion" id="accordionConveniar">
+              <!-- 1 - Solicitação de Bolsas -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading1">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#collapse1">Solicitação de Bolsas</button>
+                </h2>
+                <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionConveniar">
+                  <div class="accordion-body">
+                    <ol>
+                      <li>Acesse o menu <strong>“Pedidos”</strong>.</li>
+                      <img src="../static/partes/paginas/acessoportal/foto1.png" class="img-fluid rounded my-2"
+                        style="max-width: 350px; height: 170px; object-fit: cover;">
+                      <li>Em seguida, vá em <strong>“Contratação de Pessoas”</strong>.</li>
+                      <img src="../static/partes/paginas/acessoportal/foto2.png" class="img-fluid rounded my-2">
+                      <li>Clique no botão <strong>“Novo”</strong> e <i>preencha todos os dados solicitados</i>.</li>
+                      <img src="../static/partes/paginas/acessoportal/foto3.png" class="img-fluid rounded my-2"
+                        style="max-width: 450px; height: 190px; object-fit: cover;">
+                      <li>Finalize clicando em <strong>“Salvar”</strong> (canto superior esquerdo) e depois em
+                        <strong>“Enviar”</strong> (canto inferior esquerdo).</li>
+                      <img src="../static/partes/paginas/acessoportal/foto4.png" class="img-fluid rounded my-2">
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2 - Cadastro de Pessoa Física -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#collapse2">Cadastro de Pessoa Física (Bolsista)</button>
+                </h2>
+                <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionConveniar">
+                  <div class="accordion-body">
+                    <ol>
+                      <li>Acesse o <strong>Portal Conveniar</strong>.</li>
+                      <li>Vá em <strong>“Serviços”</strong>.</li>
+                      <li>Clique em <strong>“Solicitação de Cadastro de Pessoa Física”</strong>.</li>
+                      <img src="../static/partes/paginas/acessoportal/foto5.png" class="img-fluid rounded my-2">
+                      <li>Insira o e-mail do bolsista, marque todas as caixas de seleção e clique em
+                        <strong>“Enviar solicitação”</strong>.
+                      </li>
+                      <img src="../static/partes/paginas/acessoportal/FOTO8.png" class="img-fluid rounded my-2"
+                        style="max-width: 500px; height: 350px; object-fit: cover;">
+                      <li>O bolsista receberá um link por e-mail para preencher seus dados cadastrais.</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3 - Acompanhamento de Pagamentos -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading3">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#collapse3">Acompanhamento de Pagamentos</button>
+                </h2>
+                <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionConveniar">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <img src="../static/partes/paginas/acessoportal/FOTO9.png" class="img-fluid rounded my-2"
+                          style="height: 250px; object-fit: cover;">
+                      </div>
+                      <div class="col-md-6">
+                        <img src="../static/partes/paginas/acessoportal/FOTO10.png" class="img-fluid rounded my-2"
+                          style="height: 250px; object-fit: cover;">
+                      </div>
+                    </div>
+
+                    <p class="mt-3">
+                      <b>Alterações Contratuais (Aditivos):</b> caso seja necessária qualquer modificação contratual —
+                      como prorrogação de vigência, ajuste de valor ou substituição de bolsista — a solicitação deve ser
+                      feita diretamente no Conveniar, seguindo o mesmo fluxo da solicitação inicial.
+                    </p>
+
+                    <p>
+                      <b>Upload de Documentos:</b> após a coleta de todas as assinaturas necessárias, a Central de
+                      Bolsas realiza o upload do contrato assinado no sistema, vinculando-o ao processo de contratação
+                      correspondente.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info mt-4" role="alert">
+              <i class="bi bi-info-circle-fill me-2"></i>
+              <strong>Importante:</strong> O Conveniar é a ferramenta central para execução do fluxo interno de
+              solicitação e contratação de bolsas. O uso correto garante <strong>conformidade, eficiência e
+                transparência</strong> em todas as etapas do processo.
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <header id="rodape"></header>
+
+  <script src="../static/main.js"></script>
+
+</body>
+
+</html>

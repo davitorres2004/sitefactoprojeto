@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Central de Bolsas</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="../static/style.css" />
+
+    <!-- Bootstrap JS (mesma versão do CSS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
+        defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+   <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    
+</head>
+
+<body>
+
+    <div id="header"></div>
+    <div id="barranav"></div>
+
+    <main role="main" class="container-fluid mt-0">
+        <div class="row">
+            <!-- MENU LATERAL -->
+            <aside class="col-md-3 col-lg-2 sidebar d-flex flex-column p-0" role="complementary">
+                <div id="menu" style="width: 100%; min-height: 100vh; background-color: #203447;"></div>
+            
+                
+                <div id="menu2"></div>
+            </aside>
+
+            <!-- arquivo: componentes/analise-solicitacao.html -->
+        <section class="col-md-9 col-lg-10">
+            <section class="card shadow border-0 my-3 p-4">
+                <div class="card-header bg-white border-0 mb-3">
+                    <h3 class="fw-bold mb-0 text-center" style="color: #e94c1f;">
+                        <i class="bi bi-mortarboard-fill me-2"></i>
+                        Análise da Solicitação de Bolsas: O Papel Essencial do Setor de Projetos
+                    </h3>
+                </div>
+                
+                
+                <div class="card-body">
+                    <p><strong>Prezado(a) Coordenador(a),</strong></p>
+
+                    <p>
+                        Após o coordenador do projeto realizar o envio da solicitação de bolsa pelo Portal, a próxima etapa crucial
+                        é a análise minuciosa conduzida pelas <strong>Analistas de Projetos</strong>. Este passo é fundamental para
+                        assegurar a <strong>integridade, viabilidade e conformidade</strong> da proposta antes que ela prossiga
+                        para a fase de contratação.
+                    </p>
+
+                    <hr>
+
+                    <p>
+                        O Setor de Projetos atua como um <strong>filtro estratégico</strong>, verificando uma série de critérios
+                        essenciais para a saúde financeira e legal do projeto e da bolsa. A solicitação pode ser
+                        <strong>aprovada ou rejeitada</strong>, com o registro formal dessa decisão no sistema.
+                    </p>
+
+                    <p>Vejamos em detalhes o que é verificado nesta etapa:</p>
+
+                    <div class="accordion" id="accordionAnalise">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#analise1">
+                                    Conformidade das Informações Prestadas
+                                </button>
+                            </h2>
+                            <div id="analise1" class="accordion-collapse collapse" data-bs-parent="#accordionAnalise">
+                                <div class="accordion-body">
+                                    <p>
+                                        As Analistas de Projetos revisam todas as informações inseridas pelo coordenador no formulário
+                                        de solicitação, incluindo desde os dados do bolsista até os detalhes da bolsa (tipo, valor,
+                                        carga horária).
+                                    </p>
+                                    <p>
+                                        <strong>Por que é importante:</strong> garantir que não há inconsistências ou erros que possam
+                                        gerar problemas futuros na contratação ou nos pagamentos, assegurando a precisão dos dados.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#analise2">
+                                    Disponibilidade de Recursos
+                                </button>
+                            </h2>
+                            <div id="analise2" class="accordion-collapse collapse" data-bs-parent="#accordionAnalise">
+                                <div class="accordion-body">
+                                    <p>
+                                        É feita uma verificação rigorosa para confirmar se o projeto possui saldo financeiro suficiente
+                                        para cobrir o valor total da bolsa solicitada, considerando sua vigência e número de parcelas.
+                                    </p>
+                                    <p>
+                                        <strong>Por que é importante:</strong> evita compromissos financeiros que o projeto não poderá
+                                        honrar, protegendo sua sustentabilidade.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#analise3">
+                                    Adequação ao Plano de Trabalho Aprovado
+                                </button>
+                            </h2>
+                            <div id="analise3" class="accordion-collapse collapse" data-bs-parent="#accordionAnalise">
+                                <div class="accordion-body">
+                                    <p>
+                                        As atividades e objetivos descritos para o bolsista são comparados com o plano de trabalho
+                                        do projeto previamente aprovado. A categoria da bolsa e a rubrica escolhida também são
+                                        verificadas em relação ao plano.
+                                    </p>
+                                    <p>
+                                        <strong>Por que é importante:</strong> assegura que a bolsa está alinhada com os propósitos do
+                                        projeto e contribui efetivamente para seus resultados.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#analise4">
+                                    Aprovação do Empenho de Recursos
+                                </button>
+                            </h2>
+                            <div id="analise4" class="accordion-collapse collapse" data-bs-parent="#accordionAnalise">
+                                <div class="accordion-body">
+                                    <p>
+                                        Uma vez confirmada a disponibilidade e adequação, as Analistas de Projetos aprovam o empenho
+                                        dos recursos correspondentes ao valor total do contrato da bolsa. O empenho é um ato
+                                        administrativo que reserva o valor no orçamento do projeto.
+                                    </p>
+                                    <p>
+                                        <strong>Por que é importante:</strong> garante a segurança financeira do bolsista e a
+                                        regularidade dos pagamentos durante toda a vigência contratual.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#analise5">
+                                    Resultados da Análise
+                                </button>
+                            </h2>
+                            <div id="analise5" class="accordion-collapse collapse" data-bs-parent="#accordionAnalise">
+                                <div class="accordion-body">
+                                    <p>
+                                        <strong>Aprovação:</strong> se a solicitação atender a todos os critérios, ela é aprovada e
+                                        encaminhada à Central de Bolsas para contratação.
+                                    </p>
+                                    <p>
+                                        <strong>Rejeição:</strong> caso haja inconformidades, a solicitação pode ser rejeitada, com
+                                        justificativas registradas no sistema. Em alguns casos, são solicitados ajustes ao coordenador.
+                                    </p>
+                                    <p>
+                                        O rigor nesta etapa é essencial para garantir que todas as bolsas sejam concedidas de forma
+                                        transparente, legal e eficiente.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+
+
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ DA PÁGINA -->
+    <header id="rodape"></header>
+
+    <script src="../static/main.js"></script>
+
+
+</body>
+
+</html>

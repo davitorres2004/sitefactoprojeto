@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Central de Bolsas</title>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
+    <!-- Bootstrap Bundle JS (defer para carregar após HTML) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 5 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-dNrK8KjbZ8XjO2Qutv2MPvR+UO8NQw3tDi5l7V/VNbtCWUwOeGxKpD9V2muKqzPytBRPjGwYTtZMYuOZf3s8kA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div id="header"></div>
+    <div id="barranav"></div>
+
+    <main role="main" class="container-fluid mt-0">
+        <div class="row">
+            <!-- MENU LATERAL -->
+            <aside role="complementary" class="col-md-3 col-lg-2 sidebar p-1 d-flex flex-column  ">
+                <div id="menu"></div>
+                <hr style="margin: 0.4rem 0;">
+                <div id="menu2"></div>
+            </aside>
+
+            <section class="col-md-9 col-lg-10">
+                <h1 class=" text-center" style="font-family: sans-serif; padding: 15px 0px;">Consulta de Saldo e Extrato
+                    de Projetos</h1>
+                <p><strong>Prezado(a) Coordenador(a),</strong></p>
+                <p>Manter-se informado sobre a saúde financeira do seu projeto é crucial. O Conveniar oferece
+                    ferramentas simples para isso.</p>
+
+                <section>
+                    <h2>1. Saldo de Projetos</h2>
+                    <p>A consulta de saldo é a maneira mais simples e rápida de identificar o recurso disponível que seu
+                        projeto possui.</p>
+
+                    <h2>Detalhes do Saldo</h2>
+                    <p>Se o seu projeto tiver várias rubricas, o Conveniar apresentará o saldo individualizado por cada
+                        uma, além do saldo total do projeto.</p>
+
+                    <h2>Como Consultar</h2>
+                    <ol>
+                        <li>Acesse o menu <strong>"Saldo"</strong>.</li>
+
+                        <li>Escolha o seu projeto.</li>
+                        <li>Selecione a data para a qual deseja visualizar o saldo.</li>
+                        <img src="partes/paginas/consultas/foto1.jpeg"
+                            style="border: 1px solid black;border-radius: 10px;">
+                        <li>Clique em <strong>"Consultar"</strong> para que o sistema carregue o saldo de cada rubrica e
+                            o saldo total.</li>
+                        <img src="partes/paginas/consultas/foto2.jpg"
+                            style="border: 1px solid black;border-radius: 10px;">
+                    </ol>
+                </section>
+
+                <section>
+                    <h2>2. Extrato de Projetos</h2>
+                    <p>O extrato do projeto é um relatório detalhado de todas as movimentações financeiras do seu
+                        projeto em um período específico. Nele, você pode visualizar analiticamente cada lançamento de
+                        entrada ou saída de recurso.</p>
+
+                    <h2>Como Visualizar</h2>
+
+                    <ol>
+                        <li>Clique no menu <strong>"Extrato"</strong>.</li>
+                        <li>Selecione seu projeto.</li>
+                        <li>Ajuste o intervalo de datas.</li>
+                        <li>Escolha entre <strong>Extrato Simplificado</strong> ou <strong>Extrato Completo</strong>:
+                            <ul>
+                                <li><strong>Extrato Simplificado:</strong> Não exibe lançamentos estornados nem
+                                    cancelados.</li>
+                                <li><strong>Extrato Completo:</strong> Inclui todos os lançamentos, inclusive os
+                                    estornados e cancelados.</li>
+                            </ul>
+                        </li>
+                        <img src="partes/paginas/consultas/foto3.jpg"
+                            style="border: 1px solid black;border-radius: 10px;">
+
+                        <p><b>Extrato do Projeto</b>:</p>
+                        <img src="partes/paginas/consultas/foto5.jpg" width="45%"
+                            style="border: 1px solid black;border-radius: 10px;">
+
+                        <p><b>Exportar para Excel</b>:</p>
+
+                        <img src="partes/paginas/consultas/foto4.jpg"
+                            style="border: 1px solid black;border-radius: 10px;">
+
+                    </ol>
+
+                    <h2>Organização</h2>
+                    <p>O extrato é organizado de acordo com as rubricas do projeto. Para análises mais detalhadas, entre
+                        em contato com o gestor do seu projeto.</p>
+                </section>
+            </section>
+            <style>
+                /* diminui o tamanho de todos os h2 dentro dessa seção */
+                .col-md-9.col-lg-10 h2 {
+                    font-size: 1.2rem;
+                    /* ajuste conforme necessário */
+                }
+
+                .col-md-9.col-lg-10 h1 {
+                    font-size: 1.7rem;
+                    /* ajuste conforme necessário */
+                }
+            </style>
+
+
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ DA PÁGINA -->
+    <footer role=" contentinfo" class="footer text-center py-3" style="background-color: #b30000; color: white; ">
+        Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Função para carregar partes externas
+        function carregarParte(idElemento, caminhoArquivo) {
+            fetch(caminhoArquivo)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Erro ao carregar ${caminhoArquivo}`);
+                    return response.text();
+                })
+                .then(html => document.getElementById(idElemento).innerHTML = html)
+                .catch(err => console.error(err));
+        }
+
+        // Carregando os arquivos HTML separados
+        carregarParte('header', 'partes/header.html');
+        carregarParte('barranav', 'partes/barranav.html');
+        carregarParte('menu', 'partes/menu-lateral-principal.html');
+        carregarParte("menu2", 'partes/menu-lateral-informacoes.html');
+        carregarParte('ads', 'partes/carrossel-documentos.html');
+        carregarParte('cards-videos', 'partes/cards-videos.html');
+
+        // Pode carregar também aba-avisos se quiser modularizar
+
+    </script>
+
+</body>
+
+</html>
