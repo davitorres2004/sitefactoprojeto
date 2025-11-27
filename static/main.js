@@ -27,17 +27,23 @@ carregarParte('rodape', 'static/partes/rodape.html');
    <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
    ==========================================================*/
 
-document.addEventListener('DOMContentLoaded', function () {
-    const lenis = new Lenis({
-        smooth: true,
-        lerp: 0.13,        // velocidade aumentada (padrão ~0.08)
-        wheelMultiplier: 1.6, // scroll mais rápido ao rodar mouse
+document.addEventListener('DOMContentLoaded', () => {
+    // Carregar componentes do modal no momento da interação
+    const modal = document.getElementById('videoModal');
+
+    modal.addEventListener("show.bs.modal", event => {
+        const modalVideoFrame = document.getElementById("modalVideoFrame");
+        const videoSrc = event.relatedTarget.getAttribute('data-video-src');
+        
+        // Carregar vídeo apenas quando o modal abrir
+        if (videoSrc) {
+            modalVideoFrame.src = videoSrc;
+        }
     });
 
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
+    // Limpar a fonte de vídeo ao fechar o modal
+    modal.addEventListener("hide.bs.modal", () => {
+        const modalVideoFrame = document.getElementById("modalVideoFrame");
+        modalVideoFrame.src = "";
+    });
 });
