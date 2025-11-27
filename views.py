@@ -36,3 +36,7 @@ def pedidos():
 @app_views.route("/portaldocoordenador")
 def portaldocoordenador():
     return render_template("portaldocoordenador.html")
+
+@app_views.route("/duvidas")
+def duvidas():
+    return render_template("duvidas.html")

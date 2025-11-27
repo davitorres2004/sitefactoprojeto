@@ -46,169 +46,90 @@
 
 
             <section class="col-md-9 col-lg-10">
+                <h2 class="text-center mb-4" style="color:#203447;font-weight:600">Consulta Conveniar</h2>
+
+<div class="painel">
+
+    <label>CPF *</label>
+    <input id="cpf" class="form-control" placeholder="Digite o CPF do favorecido" required>
+
+    <button class="btn mt-3" style="background:#203447;color:#fff;font-size:17px;font-weight:600" onclick="consultarAPI()">Consultar</button>
+</div>
+
+<div id="resultados" class="mt-4"></div>
+
+<style>
+    .painel{
+        max-width:750px;margin:auto;background:white;padding:25px;border-radius:12px;
+        box-shadow:0 4px 12px rgba(0,0,0,.10);
+    }
+    .card-result{
+        background:white;padding:22px;border-radius:12px;margin-top:22px;
+        box-shadow:0 3px 10px rgba(0,0,0,.10);border-left:6px solid #203447;
+    }
+    .section-title{
+        font-size:18px;color:#203447;font-weight:700;margin-bottom:10px;border-bottom:2px solid #eee;
+    }
+    .info-grid{
+        display:grid;grid-template-columns:1fr 1fr;gap:10px 25px;font-size:15px;
+    }
+    .label{font-weight:600;color:#32475b}
+    @media(max-width:700px){.info-grid{grid-template-columns:1fr;}}
+</style>
+
+<script>
+// 🟦 formata para DD/MM/AAAA
+const formatarData = d => d ? new Date(d).toLocaleDateString("pt-BR") : "--";
+
+function consultarAPI(){
+    const cpf = document.getElementById("cpf").value.trim();
+    if(!cpf){ alert("⚠ CPF obrigatório!"); return; }
+
+    fetch(`https://api.conveniar.com.br/transparencia/pagamentos/bolsas?cpf=${cpf}`,{
+        headers:{
+            "accept":"application/json",
+            "X-API-KEY":"f5aa144e-ba66-4da6-9b21-151473b4022d"
+        }
+    })
+    .then(r=>r.json())
+    .then(data=>{
+        const area=document.getElementById("resultados");
+        area.innerHTML="";
+
+        if(!Array.isArray(data)||data.length===0){
+            area.innerHTML='<b class="text-danger">Nenhum pagamento encontrado.</b>';
+            return;
+        }
+
+        data.forEach((item,i)=>{
+            area.innerHTML+=`
+            <div class="card-result">
+                <div class="section-title">💰 Pagamento ${i+1}</div>
+                <div class="info-grid">
+                    <div><span class="label">Data:</span> ${formatarData(item.pagamento.dataPagamento)}</div>
+                    <div><span class="label">Competência:</span> ${formatarData(item.pagamento.dataCompetencia)}</div>
+                    <div><span class="label">Vigência:</span> <b>${formatarData(item.pagamento.dataVigenciaBolsa)}</b></div>
+                    <div><span class="label">Bruto:</span> R$ ${item.pagamento.valorBrutoPago.toFixed(2)}</div>
+                    <div><span class="label">Líquido:</span> <b>R$ ${item.pagamento.valorLiquidoPago.toFixed(2)}</b></div>
+                    <div><span class="label">Tipo:</span> ${item.pagamento.tipoPagamento}</div>
+                    <div><span class="label">Convênio:</span> ${item.pagamento.nomeConvenio}</div>
+                    <div><span class="label">Instituição:</span> ${item.pagamento.instituicaoPagamento}</div>
+                </div>
+
+                <div class="section-title mt-3">👤 Favorecido</div>
+                <div class="info-grid">
+                    <div><span class="label">Nome:</span> ${item.favorecido.nome}</div>
+                    <div><span class="label">CPF:</span> <b>${item.favorecido.cpf}</b></div>
+                </div>
+            </div>
+            `;
+        });
+    })
+    .catch(()=>alert("Erro ao consultar API"));
+}
+</script>
                 
                 
-                <section class="card shadow border-0 my-3 p-4">
-                    <div class="card-header bg-white border-0 mb-3">
-                        <h3 class="fw-bold mb-0 text-center" style="color: #e94c1f;"></h3>
-                            <i class="bi bi-mortarboard-fill me-2"></i>
-                            Processamento pela Central de Bolsas
-                        </h3>
-                    </div>
-                    
-
-                    <div class="card-body">
-                        <p><strong>Prezado(a) Coordenador(a),</strong></p>
-                        <p>
-                        
-                        O processamento pela <strong>Central de Bolsas</strong> é uma etapa crucial no fluxo interno para solicitação e
-                        contratação de bolsas, ocorrendo após a aprovação da solicitação pelo Setor de Projetos.
-                        </p>
-                        <hr>
-                        <p>
-                        Uma vez que as solicitações são aprovadas, elas são encaminhadas à Central de Bolsas, que assume as seguintes
-                        responsabilidades:
-                        </p>
-
-                        <!-- Blocos de detalhes -->
-                        <div class="accordion" id="accordionBolsas">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item1">
-                                Início do Processo de Contratação
-                            </button>
-                            </h2>
-                            <div id="item1" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
-                            <div class="accordion-body">
-                                A Central de Bolsas inicia formalmente o processo de contratação do bolsista.
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item2">
-                                Verificação de Adequações e Conformidades
-                            </button>
-                            </h2>
-                            <div id="item2" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
-                            <div class="accordion-body">
-                                É responsabilidade da Central de Bolsas verificar as adequações entre os registros do plano de trabalho,
-                                a categorização das bolsas e outras conformidades necessárias.
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item3">
-                                Emissão do Contrato de Bolsa
-                            </button>
-                            </h2>
-                            <div id="item3" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
-                            <div class="accordion-body">
-                                A Central de Bolsas emite o contrato de bolsa.
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item4">
-                                Assinatura Digital do Contrato
-                            </button>
-                            </h2>
-                            <div id="item4" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
-                            <div class="accordion-body">
-                                Após a emissão, o contrato é enviado para assinatura digital via <strong>D4Sign</strong>. Essa plataforma
-                                coleta assinaturas em etapas e garante autenticidade com certificação digital ICP-Brasil.
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item5">
-                                Upload do Contrato Assinado
-                            </button>
-                            </h2>
-                            <div id="item5" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
-                            <div class="accordion-body">
-                                Após todas as assinaturas (bolsista, coordenador e Facto), a Central de Bolsas realiza o upload do contrato
-                                assinado no sistema Conveniar.
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item6">
-                                Agendamento dos Pagamentos
-                            </button>
-                            </h2>
-                            <div id="item6" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
-                            <div class="accordion-body">
-                                Com o contrato assinado e inserido no Conveniar, a Central de Bolsas inicia o agendamento dos pagamentos,
-                                conforme o valor da bolsa, número de parcelas e vigência.
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item7">
-                                Lançamento de Pagamentos
-                            </button>
-                            </h2>
-                            <div id="item7" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
-                            <div class="accordion-body">
-                                A Central de Bolsas emite os pedidos de pagamento de todas as parcelas previstas. O cadastro bancário do
-                                bolsista deve estar correto — o pagamento é feito exclusivamente pelo <strong>Banco do Brasil</strong>.
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item8">
-                                Gestão de Aditivos Contratuais
-                            </button>
-                            </h2>
-                            <div id="item8" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
-                            <div class="accordion-body">
-                                Alterações contratuais (como prorrogação, ajuste de valor ou troca de bolsista) devem ser feitas pelo
-                                Conveniar e processadas pela Central de Bolsas.
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#item9">
-                                Processamento de Cancelamento de Contrato
-                            </button>
-                            </h2>
-                            <div id="item9" class="accordion-collapse collapse" data-bs-parent="#accordionBolsas">
-                            <div class="accordion-body">
-                                Em caso de cancelamento solicitado pelo coordenador via e-mail, a Central de Bolsas processa o pedido após
-                                validação do setor de Projetos, emite os termos, coleta assinaturas e cancela os pagamentos programados.
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        <hr class="my-4">
-                        <p>
-                        A Central de Bolsas atua como responsável principal (<strong>R</strong>) em diversas atividades conforme a Matriz
-                        RACI, incluindo geração e assinatura de contratos, aditivos e cancelamentos.
-                        </p>
-                        <p>
-                        Para dúvidas ou problemas operacionais, entre em contato pelo e-mail
-                        <a href="mailto:centraldebolsas@facto.org.br" class="text-decoration-none">centraldebolsas@facto.org.br</a>
-                        ou WhatsApp <a href="https://wa.me/5527996001115" target="_blank">(27) 99600-1115</a>.
-                        </p>
-                    </div>
-                    </section>
 
 
             </section>
