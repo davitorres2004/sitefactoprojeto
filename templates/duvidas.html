@@ -29,6 +29,96 @@
         defer></script>
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
    <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+   <style>
+    
+    h2{
+        text-align:center;
+        color:#203447;
+        font-size:26px;
+        font-weight:600;
+        margin-bottom:25px;
+    }
+    .painel{
+        max-width:850px;
+        margin:auto;
+        background:white;
+        padding:28px;
+        border-radius:12px;
+        border-top:4px solid;         /* ⭐ destaque em laranja */
+        box-shadow:0 4px 12px rgba(0,0,0,.12);
+        transition:.3s;
+    }
+    label{
+        font-weight:600;
+        margin-top:10px;
+        display:block;
+        font-size:15px;
+        color:#203447;
+    }
+    input{
+        width:100%;
+        padding:10px 12px;
+        margin-top:6px;
+        border-radius:6px;
+        border:2px solid #203447;
+        background:white;
+        font-size:15px;
+    }
+    input:focus{
+        border-color:#0f0f0f;            /* 🔥 foco laranja */
+        outline:none;
+        box-shadow:0 0 5px rgba(233,76,31,.35);
+    }
+    button{
+        margin-top:18px;width:100%;
+        padding:14px;
+        background:#203447;              /* botão azul principal */
+        color:white;border:none;
+        border-radius:6px;
+        font-size:17px;
+        font-weight:600;
+        cursor:pointer;
+    }
+    button:hover{
+        background:#e94c1f;              /* hover laranja */
+        transform:scale(1.02);
+    }
+
+    .card{                               /* QUADROS DOS RESULTADOS */
+        background:white;
+        padding:22px;
+        border-radius:12px;
+        margin-top:22px;
+        border-left:8px solid #203447;   /* azul */
+        transition:.2s;
+        box-shadow:0 3px 10px rgba(0,0,0,.10);
+        animation:fade .45s ease;
+    }
+    .card:hover{
+        border-left-color:#e94c1f;       /* destaque laranja ao passar mouse */
+    }
+
+    @keyframes fade { from{opacity:0;transform:translateY(10px);} to{opacity:1;} }
+
+    .section-title{
+        font-size:18px;
+        color:#203447;
+        font-weight:700;
+        margin-bottom:10px;
+        border-bottom:2px solid #efede5; /* linha com branco suave */
+        padding-bottom:5px;
+    }
+
+    .info-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:6px 22px;
+        font-size:15px;
+    }
+    .label{ font-weight:600;color:#203447; }
+
+    @media(max-width:700px){ .info-grid{grid-template-columns:1fr;} }
+</style>
 </head>
 
 <body>
@@ -46,90 +136,78 @@
 
 
             <section class="col-md-9 col-lg-10">
-                <h2 class="text-center mb-4" style="color:#203447;font-weight:600">Consulta Conveniar</h2>
+
+
+
+
+
+<h2>Consulta Conveniar</h2>
 
 <div class="painel">
 
     <label>CPF *</label>
-    <input id="cpf" class="form-control" placeholder="Digite o CPF do favorecido" required>
+    <input id="cpf" placeholder="000.000.000-00" required>
 
-    <button class="btn mt-3" style="background:#203447;color:#fff;font-size:17px;font-weight:600" onclick="consultarAPI()">Consultar</button>
+    <button onclick="consultarAPI()">Consultar</button>
+
 </div>
 
-<div id="resultados" class="mt-4"></div>
+<div id="resultados"></div>
 
-<style>
-    .painel{
-        max-width:750px;margin:auto;background:white;padding:25px;border-radius:12px;
-        box-shadow:0 4px 12px rgba(0,0,0,.10);
+<script>
+const formatarData = d => d ? new Date(d).toLocaleDateString("pt-BR") : "--";
+
+function consultarAPI(){
+
+    let cpf = document.getElementById("cpf").value.trim();
+    if(cpf === ""){
+        alert("⚠ Digite um CPF válido");
+        return;
     }
-    .card-result{
-        background:white;padding:22px;border-radius:12px;margin-top:22px;
-        box-shadow:0 3px 10px rgba(0,0,0,.10);border-left:6px solid #203447;
-    }
-    .section-title{
-        font-size:18px;color:#203447;font-weight:700;margin-bottom:10px;border-bottom:2px solid #eee;
-    }
-    .info-grid{
-        display:grid;grid-template-columns:1fr 1fr;gap:10px 25px;font-size:15px;
-    }
-    .label{font-weight:600;color:#32475b}
-    @media(max-width:700px){.info-grid{grid-template-columns:1fr;}}
-</style>
 
-                <script>
-                    // 🟦 formata para DD/MM/AAAA
-                    const formatarData = d => d ? new Date(d).toLocaleDateString("pt-BR") : "--";
+    fetch(`https://api.conveniar.com.br/transparencia/pagamentos/bolsas?cpf=${cpf}`,{
+        headers:{
+            "accept":"application/json",
+            "X-API-KEY":"f5aa144e-ba66-4da6-9b21-151473b4022d"
+        }
+    })
+    .then(r=>r.json())
+    .then(data=>{
+        let area=document.getElementById("resultados");
+        area.innerHTML="";
 
-                    function consultarAPI(){
-                        const cpf = document.getElementById("cpf").value.trim();
-                        if(!cpf){ alert("⚠ CPF obrigatório!"); return; }
+        if(!Array.isArray(data)||data.length===0){
+            area.innerHTML="<b style='color:#e94c1f'>Nenhum pagamento encontrado.</b>";
+            return;
+        }
 
-                        fetch(`https://api.conveniar.com.br/transparencia/pagamentos/bolsas?cpf=${cpf}`,{
-                            headers:{
-                                "accept":"application/json",
-                                "X-API-KEY":"f5aa144e-ba66-4da6-9b21-151473b4022d"
-                            }
-                        })
-                        .then(r=>r.json())
-                        .then(data=>{
-                            const area=document.getElementById("resultados");
-                            area.innerHTML="";
+        data.forEach((item,i)=>{
+            area.innerHTML+=`
+            <div class="card">
+                <div class="section-title">💰 Pagamento #${i+1}</div>
 
-                            if(!Array.isArray(data)||data.length===0){
-                                area.innerHTML='<b class="text-danger">Nenhum pagamento encontrado.</b>';
-                                return;
-                            }
+                <div class="info-grid">
+                    <div><span class="label">Data:</span> ${formatarData(item.pagamento.dataPagamento)}</div>
+                    <div><span class="label">Competência:</span> ${formatarData(item.pagamento.dataCompetencia)}</div>
+                    <div><span class="label">Vigência:</span> <b>${formatarData(item.pagamento.dataVigenciaBolsa)}</b></div>
+                    <div><span class="label">Bruto:</span> R$ ${item.pagamento.valorBrutoPago.toFixed(2)}</div>
+                    <div><span class="label">Líquido:</span> <b>R$ ${item.pagamento.valorLiquidoPago.toFixed(2)}</b></div>
+                    <div><span class="label">Tipo:</span> ${item.pagamento.tipoPagamento}</div>
+                    <div><span class="label">Convênio:</span> ${item.pagamento.nomeConvenio}</div>
+                    <div><span class="label">Instituição:</span> ${item.pagamento.instituicaoPagamento}</div>
+                </div>
 
-                            data.forEach((item,i)=>{
-                                area.innerHTML+=`
-                                <div class="card-result">
-                                    <div class="section-title">💰 Pagamento ${i+1}</div>
-                                    <div class="info-grid">
-                                        <div><span class="label">Data:</span> ${formatarData(item.pagamento.dataPagamento)}</div>
-                                        <div><span class="label">Competência:</span> ${formatarData(item.pagamento.dataCompetencia)}</div>
-                                        <div><span class="label">Vigência:</span> <b>${formatarData(item.pagamento.dataVigenciaBolsa)}</b></div>
-                                        <div><span class="label">Bruto:</span> R$ ${item.pagamento.valorBrutoPago.toFixed(2)}</div>
-                                        <div><span class="label">Líquido:</span> <b>R$ ${item.pagamento.valorLiquidoPago.toFixed(2)}</b></div>
-                                        <div><span class="label">Tipo:</span> ${item.pagamento.tipoPagamento}</div>
-                                        <div><span class="label">Convênio:</span> ${item.pagamento.nomeConvenio}</div>
-                                        <div><span class="label">Instituição:</span> ${item.pagamento.instituicaoPagamento}</div>
-                                    </div>
+                <div class="section-title" style="margin-top:15px">👤 Favorecido</div>
+                <div class="info-grid">
+                    <div><span class="label">Nome:</span> ${item.favorecido.nome}</div>
+                    <div><span class="label">CPF:</span> <b>${item.favorecido.cpf}</b></div>
+                </div>
+            </div>`;
+        });
+    })
+}
+</script>
 
-                                    <div class="section-title mt-3">👤 Favorecido</div>
-                                    <div class="info-grid">
-                                        <div><span class="label">Nome:</span> ${item.favorecido.nome}</div>
-                                        <div><span class="label">CPF:</span> <b>${item.favorecido.cpf}</b></div>
-                                    </div>
-                                </div>
-                                `;
-                            });
-                        })
-                        .catch(()=>alert("Erro ao consultar API"));
-                    }
-                </script>
-                                
-                                
 
 
             </section>
