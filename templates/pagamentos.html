@@ -91,7 +91,7 @@
         margin-top:22px;
         border-left:8px solid #203447;   /* azul */
         transition:.2s;
-        box-shadow:0 3px 10px rgba(0,0,0,.10);
+        box-shadow:0 3px 10px #203447;
         animation:fade .45s ease;
     }
     .card:hover{
@@ -133,37 +133,52 @@
     <div id="menu" style="width: 100%; min-height: 100vh; background-color: #203447;"></div>
 </aside>
 
+    <section class="col-md-9 col-lg-10">
+        <section class="card shadow border-0 my-3 p-4">
 
+           
 
-            <section class="col-md-9 col-lg-10">
+<h2>Consulta de Pagamento de Bolsa</h2>
 
-
-
-
-
-<h2>Consulta Conveniar</h2>
-
-<div class="painel">
-
+<div class="painel" style="width: 50%;">
     <label>CPF *</label>
     <input id="cpf" placeholder="000.000.000-00" required>
 
     <button onclick="consultarAPI()">Consultar</button>
-
 </div>
 
 <div id="resultados"></div>
+
+<style>
+/* Loader Animado */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #e94c1f;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+  margin: 15px auto;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+</style>
 
 <script>
 const formatarData = d => d ? new Date(d).toLocaleDateString("pt-BR") : "--";
 
 function consultarAPI(){
 
-    let cpf = document.getElementById("cpf").value.trim();
+    let cpf = document.getElementById("cpf").value.trim().replace(/[.\-]/g, "");
+    let area = document.getElementById("resultados");
+
     if(cpf === ""){
         alert("⚠ Digite um CPF válido");
         return;
     }
+
+    // 🔥 Mostra carregando antes de consultar
+    area.innerHTML = `<div class="loader"></div>
+                      <p style="text-align:center;color:#e94c1f">Consultando dados...</p>`;
 
     fetch(`https://api.conveniar.com.br/transparencia/pagamentos/bolsas?cpf=${cpf}`,{
         headers:{
@@ -173,8 +188,8 @@ function consultarAPI(){
     })
     .then(r=>r.json())
     .then(data=>{
-        let area=document.getElementById("resultados");
-        area.innerHTML="";
+
+        area.innerHTML=""; // remove o loader
 
         if(!Array.isArray(data)||data.length===0){
             area.innerHTML="<b style='color:#e94c1f'>Nenhum pagamento encontrado.</b>";
@@ -209,9 +224,8 @@ function consultarAPI(){
 </script>
 
 
-
             </section>
-
+ </section>
 
 
 
