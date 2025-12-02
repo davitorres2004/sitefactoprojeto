@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema</title>
+
+    <style>
+        /* ==== CORES PRINCIPAIS ==== */
+        :root {
+            --azul: #203447;
+            --laranja: #E94C1F;
+            --branco: #EFEDE5;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--branco);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+        }
+
+        /* ==== PAINEL DIVIDIDO ==== */
+        .left-panel {
+            flex: 1;
+            background: var(--azul);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 40px;
+        }
+
+        .left-panel h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .left-panel p {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 320px;
+            text-align: center;
+        }
+
+        /* ==== FORMULÁRIO ==== */
+        .login-container {
+            flex: 1;
+            background: white;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: -4px 0 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--azul);
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        label {
+            font-size: 14px;
+            color: #444;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 20px;
+            border-radius: 6px;
+            border: 1px solid #bbb;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--laranja);
+            box-shadow: 0 0 4px rgba(233,76,31,0.4);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: var(--laranja);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.25s;
+        }
+
+        button:hover {
+            background: #c53e19;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* ==== RESPONSIVO ==== */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            .left-panel {
+                padding: 20px;
+                height: 220px;
+            }
+            .login-container {
+                padding: 40px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Painel institucional -->
+    <div class="left-panel">
+        <h1>CENTRAL DE BOLSAS</h1>
+        <p>Acesso exclusivo para coordenadores, analistas e gestores da Fundação de Apoio.</p>
+    </div>
+
+    <!-- Formulário de login -->
+    <div class="login-container">
+        <h2>Acesso ao Sistema</h2>
+
+        <form method="POST" action="/login">
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
