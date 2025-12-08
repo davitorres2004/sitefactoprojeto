@@ -29,25 +29,26 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
         defer></script>
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
-   <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
-<script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const lenis = new Lenis();
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const lenis = new Lenis();
 
-        function raf(time) {
-            lenis.raf(time);
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
             requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-    });
-</script>
+        });
+    </script>
 </head>
 
 <body>
+    <div class="menu-overlay"></div>
     <header id="header"></header>
 
     <div id="barranav"></div>
@@ -62,97 +63,100 @@
             <!-- Conteúdo principal -->
             <section class="col-md-9 col-lg-10 d-flex flex-column" aria-label="Conteúdo principal">
                 <section class="card shadow border-0 my-3 p-4">
-                <div id="ads"></div>
+                    <div id="ads"></div>
                 </section>
                 <hr class="my-4" />
                 <section class="card shadow border-0 my-3 p-4">
-                <!-- Seção de Vídeos -->
-                <section aria-labelledby="titulo-videos" class="mt-5 d-flex flex-column">
-                    <h2 id="titulo-videos" class="fw-bold d-flex flex-column">Vídeos</h2>
-                    <p class="lead" style="font-family: 'Red Hat Display', sans-serif;">Assista aos tutoriais abaixo:</p>
+                    <!-- Seção de Vídeos -->
+                    <section aria-labelledby="titulo-videos" class="mt-5 d-flex flex-column">
+                        <h2 id="titulo-videos" class="fw-bold d-flex flex-column">Vídeos</h2>
+                        <p class="lead" style="font-family: 'Red Hat Display', sans-serif;">Assista aos tutoriais
+                            abaixo:</p>
 
-                    <div id="videoContainer" class="row g-4"> <!--Linha que contem 4 videos-->
-                        <!-- Card video 1 -->
-                        <div class="col-sm-6 col-md-4 col-lg-3">
-                            <article class="card h-100 video-card" role="region" aria-labelledby="titulo-video-1">
-                                <div class="ratio ratio-16x9">
-                                    <img src="https://img.youtube.com/vi/3c9NcseMEKQ/hqdefault.jpg" 
-                                        class="card-img-top"
-                                        style="object-fit: cover;">
-
-                                </div>
-
-                                <div class="card-body d-flex flex-column">
-                                    <h3 id="titulo-video-1" class="card-title h6">Pedidos de Pagamento de Pessoa Física</h3>
-                                    <p class="card-text">Envie seu Pedido de Pagamento pelo sistema Conveniar em poucos passos.</p>
-
-                                    <button class="btn mt-auto botao-assista" data-bs-toggle="modal" 
-                                        data-bs-target="#videoModal"
-                                        data-video-src="https://www.youtube.com/embed/3c9NcseMEKQ?si=1eLRE47HePvdOjTV"
-                                        data-video-title="Processo - Pedido de Pagamento">
-                                        Assistir vídeo
-                                    </button>
-                                </div>
-                            </article>
-                        </div>
-
-
-                        
-                        
-                        <!-- Card video 2 -->
-                        <div class="col-sm-6 col-md-4 col-lg-3">
-                            <article class="card h-100 video-card" role="region" aria-labelledby="titulo-video-1">
-                                <div class="ratio ratio-16x9">
-                                    <img src="https://img.youtube.com/vi/3c9NcseMEKQ/hqdefault.jpg"
-                                        class="card-img-top"
-                                        style="object-fit: cover;">
-
-                                </div>
-
-                                <div class="card-body d-flex flex-column">
-                                    <h3 id="titulo-video-1" class="card-title h6">Pedidos de Pagamento de Pessoa Física</h3>
-                                    <p class="card-text">Envie seu Pedido de Pagamento pelo sistema Conveniar em poucos passos.</p>
-
-                                    <button class="btn mt-auto botao-assista" data-bs-toggle="modal" 
-                                        data-bs-target="#videoModal"
-                                        data-video-src="https://www.youtube.com/embed/3c9NcseMEKQ?si=1eLRE47HePvdOjTV"
-                                        data-video-title="Processo - Pedido de Pagamento">
-                                        Assistir vídeo
-                                    </button>
-                                </div>
-                            </article>
-                        </div>
-
-                        
-
-                    </div>
-
-                    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-fullscreen-md-down modal-xl modal-dialog-centered">
-
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h2 id="videoModalLabel" class="modal-title h5"></h2>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                                </div>
-
-                                <div class="modal-body">
+                        <div id="videoContainer" class="row g-4"> <!--Linha que contem 4 videos-->
+                            <!-- Card video 1 -->
+                            <div class="col-sm-6 col-md-4 col-lg-3">
+                                <article class="card h-100 video-card" role="region" aria-labelledby="titulo-video-1">
                                     <div class="ratio ratio-16x9">
-                                        <iframe id="modalVideoFrame" class="w-100" 
-                                            src=""
-                                            frameborder="0" 
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                            allowfullscreen>
-                                        </iframe>
+                                        <img src="https://img.youtube.com/vi/3c9NcseMEKQ/hqdefault.jpg"
+                                            class="card-img-top" style="object-fit: cover;">
+
+                                    </div>
+
+                                    <div class="card-body d-flex flex-column">
+                                        <h3 id="titulo-video-1" class="card-title h6">Pedidos de Pagamento de Pessoa
+                                            Física</h3>
+                                        <p class="card-text">Envie seu Pedido de Pagamento pelo sistema Conveniar em
+                                            poucos passos.</p>
+
+                                        <button class="btn mt-auto botao-assista" data-bs-toggle="modal"
+                                            data-bs-target="#videoModal"
+                                            data-video-src="https://www.youtube.com/embed/3c9NcseMEKQ?si=1eLRE47HePvdOjTV"
+                                            data-video-title="Processo - Pedido de Pagamento">
+                                            Assistir vídeo
+                                        </button>
+                                    </div>
+                                </article>
+                            </div>
+
+
+
+
+                            <!-- Card video 2 -->
+                            <div class="col-sm-6 col-md-4 col-lg-3">
+                                <article class="card h-100 video-card" role="region" aria-labelledby="titulo-video-1">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="https://img.youtube.com/vi/3c9NcseMEKQ/hqdefault.jpg"
+                                            class="card-img-top" style="object-fit: cover;">
+
+                                    </div>
+
+                                    <div class="card-body d-flex flex-column">
+                                        <h3 id="titulo-video-1" class="card-title h6">Pedidos de Pagamento de Pessoa
+                                            Física</h3>
+                                        <p class="card-text">Envie seu Pedido de Pagamento pelo sistema Conveniar em
+                                            poucos passos.</p>
+
+                                        <button class="btn mt-auto botao-assista" data-bs-toggle="modal"
+                                            data-bs-target="#videoModal"
+                                            data-video-src="https://www.youtube.com/embed/3c9NcseMEKQ?si=1eLRE47HePvdOjTV"
+                                            data-video-title="Processo - Pedido de Pagamento">
+                                            Assistir vídeo
+                                        </button>
+                                    </div>
+                                </article>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-fullscreen-md-down modal-xl modal-dialog-centered">
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 id="videoModalLabel" class="modal-title h5"></h2>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Fechar"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe id="modalVideoFrame" class="w-100" src="" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                allowfullscreen>
+                                            </iframe>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
 
-                    
-                </section>
+
+                    </section>
                 </section>
                 <hr class="my-4" />
                 <!-- Avisos -->
@@ -163,9 +167,12 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>[10/07/2025]</strong> Início do período de solicitação de bolsas no sistema SIGFAP.</li>
-                            <li class="list-group-item"><strong>[08/07/2025]</strong> Atualização no processo de upload de documentos.</li>
-                            <li class="list-group-item"><strong>[05/07/2025]</strong> Novo tutorial disponível na aba "Dúvidas Frequentes".</li>
+                            <li class="list-group-item"><strong>[10/07/2025]</strong> Início do período de solicitação
+                                de bolsas no sistema SIGFAP.</li>
+                            <li class="list-group-item"><strong>[08/07/2025]</strong> Atualização no processo de upload
+                                de documentos.</li>
+                            <li class="list-group-item"><strong>[05/07/2025]</strong> Novo tutorial disponível na aba
+                                "Dúvidas Frequentes".</li>
                         </ul>
                     </div>
                 </section>

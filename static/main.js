@@ -1,49 +1,60 @@
 // Função para carregar partes externas
 function carregarParte(idElemento, caminhoArquivo) {
+    const alvo = document.getElementById(idElemento);
+    if (!alvo) return; // Se não existir no HTML, não tenta carregar
+
     fetch(caminhoArquivo)
         .then(response => {
             if (!response.ok) throw new Error(`Erro ao carregar ${caminhoArquivo}`);
             return response.text();
         })
-        .then(html => document.getElementById(idElemento).innerHTML = html)
+        .then(html => alvo.innerHTML = html)
         .catch(err => console.error(err));
 }
 
-// Carregando os arquivos HTML separados
+// Carregando os componentes apenas se existirem
 carregarParte('header', 'static/partes/header.html');
 carregarParte('barranav', 'static/partes/barranav.html');
 carregarParte('menu', 'static/partes/menu-lateral-principal.html');
 carregarParte('ads', 'static/partes/carrossel-documentos.html');
 carregarParte('cards-videos', 'static/partes/cards-videos.html');
 carregarParte('rodape', 'static/partes/rodape.html');
-// Pode carregar também aba-avisos se quiser modularizar
 
 
-/* ==========================================================
-   🔥 ROLAGEM SUAVE PROFISSIONAL COM LENIS (substituição direta)
-   Basta garantir que os imports abaixo estejam no <head> ou antes deste script:
-   
-   <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
-   <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-   ==========================================================*/
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Carregar componentes do modal no momento da interação
-    const modal = document.getElementById('videoModal');
+// ============================================================
+// 🔥 Modal de Vídeos (executa SOMENTE se o modal existir)
+// ============================================================
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("videoModal");
+    if (!modal) return; // Só roda se tiver modal na página
 
     modal.addEventListener("show.bs.modal", event => {
         const modalVideoFrame = document.getElementById("modalVideoFrame");
-        const videoSrc = event.relatedTarget.getAttribute('data-video-src');
-        
-        // Carregar vídeo apenas quando o modal abrir
-        if (videoSrc) {
-            modalVideoFrame.src = videoSrc;
-        }
+        const videoSrc = event.relatedTarget?.getAttribute("data-video-src");
+        if (videoSrc && modalVideoFrame) modalVideoFrame.src = videoSrc;
     });
 
-    // Limpar a fonte de vídeo ao fechar o modal
     modal.addEventListener("hide.bs.modal", () => {
         const modalVideoFrame = document.getElementById("modalVideoFrame");
-        modalVideoFrame.src = "";
+        if (modalVideoFrame) modalVideoFrame.src = "";
     });
 });
+
+
+// ============================================================
+// 🔥 Menu Mobile — só ativa se os elementos existirem
+// ============================================================
+const toggler = document.querySelector(".navbar-toggler");
+const menuNav = document.querySelector(".menu-nav");
+const overlay = document.querySelector(".menu-overlay");
+
+function toggleMenu() {
+    const active = menuNav.classList.toggle("active");
+    overlay.classList.toggle("active", active);
+    document.body.style.overflow = active ? "hidden" : "";
+}
+
+if (toggler && menuNav && overlay) {
+    toggler.addEventListener("click", toggleMenu);
+    overlay.addEventListener("click", toggleMenu);
+}

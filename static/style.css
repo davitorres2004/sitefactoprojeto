@@ -509,10 +509,36 @@ details p {
         padding: 0.75rem 1rem;
     }
 }
+/* Mobile: mostra o botão e esconde o sidebar fixo */
+@media (max-width: 768px) {
+    /* Sidebar sumindo no mobile */
+    .sidebar {
+        display: none !important;
+    }
 
+    /* O menu mobile existe, mas só aparece com .active */
+    .menu-nav {
+        position: fixed;
+        top: 0;
+        left: -280px; /* escondido inicialmente */
+        height: 100vh;
+        z-index: 2000;
+        background-color: var(--primary-red);
+        transition: var(--transition-menu);
+    }
 
-/* Desktop (min-width: 769px) - Layout Sticky/Fixo */
-@media (min-width: 769px) {
+    /* Quando clica no botão → aparece */
+    .menu-nav.active {
+        left: 0 !important;
+    }
+
+    /* Botão do menu precisa APARECER no mobile */
+    .navbar-toggler {
+        display: block !important;
+        z-index: 2100;
+    }
+}
+{
     /* Sidebar (Contêiner) */
     .sidebar {
         width: var(--menu-width);
@@ -625,4 +651,293 @@ details p {
     }
     
     /* ... O restante das regras do desktop continua ... */
+}
+/* MOBILE: Offcanvas com o mesmo visual do desktop */
+@media (max-width: 768px) {
+  body {
+    padding-top: 78px; /* espaço pro header fixo */
+  }
+
+  /* Força o offcanvas a ter o mesmo estilo do menu lateral do desktop */
+  #mobileMenuDrawer {
+    width: 290px !important;
+    border-right: none;
+  }
+
+  #mobileMenuDrawer .offcanvas-body {
+    padding: 0 !important;
+  }
+
+  /* Garante que o menu-item tenha toque confortável */
+  .menu-item {
+    padding: 14px 18px !important;
+    margin: 6px 12px;
+    border-radius: 12px;
+    font-size: 1rem;
+    gap: 14px;
+  }
+
+  .menu-item i {
+    font-size: 1.25rem;
+    width: 28px;
+  }
+
+  /* Logout sempre clicável e bonito */
+  .btn-logout {
+    padding: 14px 20px !important;
+    font-size: 1.02rem;
+    border-radius: 12px;
+    margin: 0 16px !important;
+  }
+}
+/* ==============================================
+   OCULTA A NAVBAR ANTIGA/FIXA NO MOBILE
+   ============================================== */
+
+/* Oculta todo o container da navbar antiga em telas ≤ 768px */
+@media (max-width: 768px) {
+    
+    /* Esconde o container inteiro que você me mostrou */
+    .container-fluid > .navbar-brand[style*="width: 250px"],
+    .container-fluid > .navbar-brand.ms-3.fs-3,
+    .container-fluid > .navbar-toggler,
+    .container-fluid > #menuNavbar,
+    .container-fluid > .btn-logout.ms-3,
+    .container-fluid > .navbar-nav {
+        display: none !important;
+    }
+
+    /* Forma mais segura e direta (recomendada) */
+    .container-fluid.d-flex.align-items-center.justify-content-between.py-2,
+    .container-fluid .navbar-brand,
+    .container-fluid .navbar-toggler,
+    .container-fluid #menuNavbar,
+    .container-fluid .btn-logout.ms-3 {
+        display: none !important;
+    }
+
+    /* Se o container tiver uma classe específica (ex: header-top, navbar-top, etc), use ela: */
+    /* .navbar-top, .header-contacts, .top-bar { display: none !important; } */
+}
+/* MOBILE: ocultar apenas itens do menu lateral fixo */
+@media (max-width: 768px) {
+
+    /* Esconde o menu lateral fixo */
+    #menu, 
+    #menu2 {
+        display: none !important;
+    }
+
+    /* Mantém navbar e botão visíveis para abrir offcanvas */
+    .navbar-brand,
+    .navbar-toggler,
+    .btn-logout {
+        display: block !important;
+    }
+}
+@media (min-width: 769px){
+    .navbar-toggler {
+        display: none !important;
+    }
+}
+/* ========== MOBILE (≤ 768px) : MENU OFFCANVAS ========== */
+@media (max-width: 768px) {
+
+    /* Some com o menu lateral fixo */
+    .sidebar {
+        display: none !important;
+    }
+
+    /* Offcanvas estilizado */
+    .menu-nav {
+        position: fixed;
+        top: 0;
+        left: -280px; /* escondido */
+        width: var(--menu-width);
+        height: 100vh;
+        background-color: var(--primary-red);
+        box-shadow: 2px 0 8px rgba(0,0,0,0.25);
+        border-radius: 0;
+        transition: var(--transition-menu);
+        z-index: 2000;
+    }
+    .menu-nav.active {
+        left: 0 !important;
+    }
+
+    /* Botão de abrir menu SEMPRE visível no mobile */
+    .navbar-toggler {
+        display: block !important;
+        z-index: 2100;
+    }
+
+    /* Ajustes de itens */
+    .menu-item {
+        font-size: 0.95rem;
+        padding: 12px 14px;
+    }
+
+    /* Evita rolagem do fundo */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    /* Cards mais espaçados */
+    .card {
+        margin: 1rem;
+        border-radius: 1rem;
+    }
+}
+
+
+/* ========== DESKTOP (≥ 769px) : MENU FIXO LATERAL ========== */
+@media (min-width: 769px) {
+
+    .navbar-toggler {
+        display: none !important; /* Não mostra no desktop */
+    }
+
+    /* Sidebar ocupando altura total */
+    .sidebar {
+        display: block !important;
+        width: var(--menu-width);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        padding: 0;
+    }
+
+    /* Menu interno ocupando toda a sidebar */
+    .menu-nav {
+        width: 100%;
+        min-height: 100%;
+        position: relative;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+        left: 0 !important;  /* Sempre visível */
+    }
+
+    /* Conteúdo ocupa a área restante */
+    .col-md-9.col-lg-10 {
+        flex: 1;
+        width: calc(100vw - var(--menu-width));
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        overflow-x: hidden;
+    }
+}
+/* ========== MOBILE (≤ 768px) : MENU OFFCANVAS ========== */
+@media (max-width: 768px) {
+
+    /* Esconde sidebar fixa */
+    .sidebar {
+        display: none !important;
+    }
+
+    /* Menu vira offcanvas */
+    .menu-nav {
+        position: fixed;
+        top: 0;
+        left: -280px; /* escondido inicialmente */
+        width: var(--menu-width);
+        height: 100vh;
+        background-color: var(--primary-red);
+        margin: 0;
+        padding: 0;
+        z-index: 2000;
+        border-radius: 0;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.25);
+        transition: var(--transition-menu);
+    }
+
+    /* Quando clica no botão → aparece */
+    .menu-nav.active {
+        left: 0 !important;
+    }
+
+    /* Botão de abrir menu sempre visível no mobile */
+    .navbar-toggler {
+        display: block !important;
+        z-index: 2100;
+    }
+
+    /* O corpo não pode rolar com o menu aberto */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    /* Ajustes de tocabilidade do item */
+    .menu-item {
+        padding: 14px 18px;
+        margin: 6px 10px;
+        border-radius: 10px;
+        font-size: 1rem;
+        gap: 14px;
+    }
+}
+
+
+/* ========== DESKTOP (≥ 769px) : MENU FIXO LATERAL ========== */
+@media (min-width: 769px) {
+
+    /* O botão mobile some */
+    .navbar-toggler {
+        display: none !important;
+    }
+
+    /* Sidebar fixa na lateral */
+    .sidebar {
+        display: block !important;
+        width: var(--menu-width);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 0;
+    }
+
+    /* Menu sempre visível */
+    .menu-nav {
+        width: var(--menu-width);
+        height: 100%;
+        border-radius: .5rem;
+        left: 0 !important;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    /* Conteúdo ocupa a área ao lado */
+    .col-md-9.col-lg-10 {
+        width: calc(100vw - var(--menu-width));
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        overflow-x: hidden;
+    }
+}
+/* ===== Garantir rodapé no fim da página ===== */
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* Empurra o rodapé para o fim */
+}
+
+/* Sidebar NÃO deve ocupar 100vh no desktop */
+@media (min-width: 769px) {
+    .sidebar {
+        height: auto !important;
+        position: sticky;
+        top: 0;
+    }
+}
+
+/* Rodapé sempre abaixo e acima de tudo */
+footer, 
+#rodape, .rodape, .footer {
+    width: 100%;
+    margin-top: auto;
+    position: relative;
+    z-index: 100; /* Fica acima do menu */
 }
